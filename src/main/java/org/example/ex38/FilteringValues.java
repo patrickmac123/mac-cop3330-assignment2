@@ -5,6 +5,7 @@ package org.example.ex38;
  *  Copyright 2021 Patrick Mac
  */
 
+import java.util.ArrayList;
 import java.util.*;
 
 public class FilteringValues
@@ -28,13 +29,36 @@ public class FilteringValues
         }
         return evenArray;
     }
+    public static String[] splitString(String str)
+    {
+        int i, index = 0;
+        ArrayList arrayList = new ArrayList();
+        for(i = 0; i < str.length(); i++) {
+
+            if(str.charAt(i) == ' ')
+            {
+
+                arrayList.add(str.substring(index, i));
+                index = i + 1;
+            }
+        }
+        arrayList.add(str.substring(index));
+
+        String[] array = new String[arrayList.size()];
+
+        array = (String[]) arrayList.toArray(array);
+
+        return array;
+    }
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a list of numbers, separated by spaces: ");
         String input = scanner.nextLine();
 
-        String str[] = input.split(" ");
+
+        String str[] = splitString(input);
+
 
         String finalList [] = filterEvenNumbers(str);
 
