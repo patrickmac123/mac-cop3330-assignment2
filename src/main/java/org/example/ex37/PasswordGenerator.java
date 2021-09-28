@@ -71,7 +71,7 @@ public class PasswordGenerator
             }
             return newletters;
         }
-    public static ArrayList randomize(ArrayList<String> charList,ArrayList<String> numList,ArrayList<String> letterList)
+    public static String generate(ArrayList<String> charList,ArrayList<String> numList,ArrayList<String> letterList)
     {
 
         ArrayList<String> password = new ArrayList<String>();
@@ -79,7 +79,9 @@ public class PasswordGenerator
         password.addAll(numList);
         password.addAll(letterList);
         Collections.shuffle(password);
-        return password;
+        String strList = password.toString();
+        strList = strList.replace("[", "").replace("]", "").replace(",","").replace(" ","");
+        return strList;
     }
     public static void main(String[] args)
     {
@@ -116,13 +118,12 @@ public class PasswordGenerator
         ArrayList<String> letterList = new ArrayList<String>();
         letterList = randomLetters(total);
 
-        ArrayList<String>password = new ArrayList<String>();
-        password = randomize(charList,numList,letterList);
 
-        String strList = password.toString();
-        strList = strList.replace("[", "").replace("]", "").replace(",","").replace(" ","");
+        String password = generate(charList,numList,letterList);
 
-        System.out.println("Your password is "+strList);
+
+
+        System.out.println("Your password is "+password);
 
     }
 }

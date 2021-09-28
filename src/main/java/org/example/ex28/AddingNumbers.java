@@ -1,5 +1,6 @@
 package org.example.ex28;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -10,18 +11,30 @@ import java.util.Scanner;
 
 public class AddingNumbers
 {
-    public static void main( String[] args )
+
+    public static int add(ArrayList list)
     {
         int sum = 0;
-        Scanner scan = new Scanner(System.in);
+        for(int i = 0;i< list.size();i++)
+        {
 
+            sum += (int) list.get(i);
+
+        }
+        return sum;
+    }
+    public static void main( String[] args )
+    {
+        ArrayList list = new ArrayList();
+        Scanner scan = new Scanner(System.in);
         for(int i = 0;i<5;i++)
         {
 
             System.out.print("Enter a number: ");
-            sum += scan.nextInt();
+            list.add(scan.nextInt());
 
         }
+        int sum = add(list);
         System.out.println("The total is "+sum+".");
     }
 }

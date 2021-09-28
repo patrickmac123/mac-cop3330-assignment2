@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class HandlingBadInput
 {
-    public static Integer Calculate(Integer r)
+    public static Integer calculate(int r)
     {
         int years;
         return years = 72 / r;
@@ -46,7 +46,7 @@ public class HandlingBadInput
 
         } while (flag);
 
-        int result = Calculate(rate);
+        int result = calculate(rate);
         System.out.println("It will take "+result+" years to double your initial investment.");
     }
 }

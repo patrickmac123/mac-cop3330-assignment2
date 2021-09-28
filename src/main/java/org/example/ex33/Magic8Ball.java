@@ -10,33 +10,30 @@ import java.util.Scanner;
 
 public class Magic8Ball
 {
+    public static int randomize()
+    {
+        Random rand = new Random();
+        int num = rand.nextInt(4);
+        return num;
+    }
     public static void main(String[] args)
     {
         String[] response = {"Yes,", "No,", "Maybe,", "Ask again later."};
-        Random rand = new Random();
         Scanner scan = new Scanner(System.in);
         String input;
-        boolean status = true;
-        while(status)
-        {
+
             System.out.println("I am the Magic 8 Ball");
             System.out.println("To quit type exit");
             System.out.println("What is your question? ");
             System.out.print("> ");
             input = scan.nextLine();
 
-            if(input.equals("exit"))
-            {
-                status = false;
-            }
-            else
-            {
-                int num = rand.nextInt(4);
-                System.out.println();
-                System.out.println(response[num]);
-                System.out.println();
-            }
-        }
+            int num = randomize();
+            System.out.println();
+            System.out.println(response[num]);
+            System.out.println();
+
+
     }
 
 }

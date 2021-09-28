@@ -10,16 +10,11 @@ import java.util.Random;
 
 public class GuesstheNumberGame
 {
-    public static int guessNum(int difficulty)
+
+    public static int difficulty(int difficulty)
     {
-        Scanner scan = new Scanner(System.in);
         Random rand = new Random();
-        int num = 0;
-        int guesses = 0;
-        String inputString;
-        int input = 0;
-        boolean loop = true;
-        boolean valid = true;
+        int num=0;
 
         if(difficulty == 1)
         {
@@ -33,7 +28,19 @@ public class GuesstheNumberGame
         {
             num = rand.nextInt(1001);
         }
+        return num;
+    }
+    public static int guessNum(int difficulty)
+    {
+        Scanner scan = new Scanner(System.in);
+        int num = 0;
+        int guesses = 0;
+        String inputString;
+        int input = 0;
+        boolean loop = true;
+        boolean valid = true;
 
+        num = difficulty(difficulty);
 
         System.out.print("I have my number. What's your guess? ");
 
